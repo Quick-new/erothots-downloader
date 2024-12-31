@@ -1,0 +1,163 @@
+
+<html>
+<head>
+  <title>Erothots Video Downloader</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 10px;
+      min-width: 600px;
+      min-height: 600px;
+      background: linear-gradient(to bottom right, #ffe6f9, #ffffff);
+    }
+    h2 {
+      margin: 0;
+      padding: 10px;
+      text-align: center;
+      color: #7c2c5b;
+      background-color: #ffdff0;
+      border-radius: 8px;
+    }
+    #controls {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin: 10px 0;
+    }
+    input[type="search"] {
+      font-size: 14px;
+      padding: 6px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    #selectAllContainer {
+      display: flex;
+      align-items: center;
+    }
+    #selectAllCheckbox {
+      margin-right: 5px;
+      transform: scale(1.2);
+    }
+    #videoList {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 10px;
+      max-height: 320px;
+      overflow-y: auto;
+    }
+    .video-item {
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      position: relative;
+    }
+    .video-item input[type="checkbox"] {
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      transform: scale(1.1);
+    }
+    .video-item img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      cursor: pointer;
+      border-bottom: 1px solid #eee;
+    }
+    .video-details {
+      padding: 8px;
+    }
+    .video-details h3 {
+      margin: 0;
+      font-size: 14px;
+      color: #333;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+    .actions {
+      margin-top: 6px;
+      display: flex;
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+    button {
+      font-size: 12px;
+      background-color: #f2e1ec;
+      border: none;
+      border-radius: 4px;
+      padding: 4px 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #e6cce0;
+    }
+    #downloadSelectedButton {
+      width: 100%;
+      padding: 8px;
+      background-color: #cc77a9;
+      color: #fff;
+      margin-top: 10px;
+      font-size: 16px;
+    }
+    #downloadSelectedButton:hover {
+      background-color: #bf5595;
+    }
+    #bookmarksSection {
+      display: none;
+      margin-top: 10px;
+      background-color: #fff;
+      border-radius: 5px;
+      padding: 10px;
+    }
+    #bookmarksSection h3 {
+      margin-top: 0;
+      font-size: 16px;
+      color: #7c2c5b;
+    }
+    #bookmarksList {
+      max-height: 120px;
+      overflow-y: auto;
+    }
+    .bookmark-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 14px;
+      margin-bottom: 5px;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 5px;
+    }
+    .bookmark-title {
+      font-weight: bold;
+      margin-right: 8px;
+    }
+    .bookmark-date {
+      font-size: 11px;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <h2>Erothots Video Downloader</h2>
+  <div id="controls">
+    <input type="search" id="searchBar" placeholder="Search videos by title...">
+    <div id="selectAllContainer">
+      <input type="checkbox" id="selectAllCheckbox">
+      <label for="selectAllCheckbox">Select All</label>
+    </div>
+  </div>
+  <div id="videoList"></div>
+  <button id="downloadSelectedButton">Download Selected</button>
+  <div id="bookmarksSection">
+    <h3>Your Bookmarks</h3>
+    <div id="bookmarksList"></div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

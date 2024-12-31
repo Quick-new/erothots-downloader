@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "Erothots Video Downloader",
+  "version": "1.7",
+  "description": "Select and download MP4 videos from sites containing 'erothot' in their domain.",
+  "permissions": [
+    "activeTab",
+    "downloads",
+    "scripting",
+    "tabs",
+    "storage"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "57": "apple-icon-57x57.png"
+    }
+  }
+}
